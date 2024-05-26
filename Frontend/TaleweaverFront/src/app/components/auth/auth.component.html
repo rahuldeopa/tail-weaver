@@ -1,0 +1,125 @@
+<div class=" banner ">
+    <div class="flex justify-center h-screen items-center overflow-hidden ">
+
+        <div class="container mat-accent">
+
+            <div class="cover" [ngClass]="{'rotate-active':isRegister}">
+
+                <div class="front">
+
+                    <img src="../../../assets/images/singin.jpg" alt="">
+
+
+                    <div class="text ">
+                        <span class="text-1 ">
+                            "Crafting Worlds, One Tale at a Time."
+                        </span>
+                        <span class="text-2">
+                            Lets get connected
+                        </span>
+                    </div>
+                </div>
+
+
+                <div class="back">
+                    <img src="../../../assets/images/signup.jpg" alt="">
+
+                </div>
+
+            </div>
+
+            <div class="form h-full">
+                <div class="form-content h-full">
+                    <div class="signup-form">
+                        <h1 class="text-lg font-bold text-center pb-8">Signup</h1>
+
+                        <form class="" (ngSubmit)="handleRegister()" [formGroup]="registerForm">
+
+                            <div class="mb-4">
+
+                                <mat-form-field class="w-full">
+                                    <mat-label class="text-gray-200">Full Name</mat-label>
+                                    <input matInput placeholder="full name..." formControlName="fullname"
+                                        value="registerForm.fullName" name="fullName"
+                                        class="py-2 px-3 text-gray-200 mt-1  focus:shadow-outline">
+                                </mat-form-field>
+
+                            </div>
+                            <div class="mb-4">
+
+                                <mat-form-field class="w-full">
+                                    <mat-label class="text-gray-200">Email</mat-label>
+                                    <input matInput placeholder="example@email.com" value="" name="email"
+                                        formControlName="email"
+                                        class="py-2 px-3 text-gray-200 mt-1  focus:shadow-outline">
+                                </mat-form-field>
+
+                            </div>
+                            <div class="mb-4">
+
+                                <mat-form-field class="w-full">
+                                    <mat-label class="text-gray-200">Password</mat-label>
+                                    <input matInput placeholder="password***" value="" name="password"
+                                        formControlName="password"
+                                        class="py-2 px-3 text-gray-200 mt-1  focus:shadow-outline">
+                                </mat-form-field>
+
+                            </div>
+
+
+                            <div>
+                                <button mat-raised-button color="primary" type="submit" class="w-full">
+                                    Register
+                                </button>
+                            </div>
+                        </form>
+                        <div class="items-center gap-2 justify-center mt-10">
+                            already registered ? <button mat-button color="accent"
+                                (click)=" togglePannel()">login</button>
+                        </div>
+                    </div>
+
+                    <div class="login-form">
+                        <h1 class="text-lg font-bold text-center pb-8">Login</h1>
+
+                        <form class="" (ngSubmit)="handleLogin()" [formGroup]="loginForm">
+
+
+                            <div class="mb-4">
+
+                                <mat-form-field class="w-full">
+                                    <mat-label class="text-gray-200">Email</mat-label>
+                                    <input matInput placeholder="example@email.com" value="" name="email"
+                                        formControlName="email"
+                                        class="py-2 px-3 text-gray-200 mt-1  focus:shadow-outline">
+                                </mat-form-field>
+
+                            </div>
+                            <div class="mb-4">
+
+                                <mat-form-field class="w-full">
+                                    <mat-label class="text-gray-200">Password</mat-label>
+                                    <input matInput placeholder="password***" type="password" value="" name="password"
+                                        formControlName="password"
+                                        class="py-2 px-3 text-gray-200 mt-1  focus:shadow-outline">
+                                </mat-form-field>
+
+                            </div>
+
+
+                            <div>
+                                <button mat-raised-button color="primary" type="submit" class="w-full">
+                                    Login
+                                </button>
+                            </div>
+                        </form>
+                        <div class="items-center gap-2 justify-center mt-10">
+                            new user? <button mat-button color="accent" (click)="togglePannel()">signup</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

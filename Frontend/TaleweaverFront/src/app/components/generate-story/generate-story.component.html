@@ -1,0 +1,126 @@
+<div class=" min-h-[93vh]">
+    <div class=" w-full h-full flex justify-center items-center  min-h-[82vh]">
+        <div class="p-6 m-4" id="homeTitle">
+
+            <div>
+
+                <div class="flex justify-center items-top mt-10  ">
+                    <!-- Left side with picture -->
+                    <div class="w-1/2 rounded-e-lg">
+                        <img src="../../../assets/images/prompt.jpg" class="w-full h-full rounded-2xl object-cover">
+                    </div>
+
+                    <!-- Right side with form -->
+                    <div class="w-1/2">
+
+                        @if (!storyReturn && !isLoading ) {
+                        <div class="max-w-md mx-auto p-8  rounded-lg shadow-lg bg-white text-white bg-opacity-10">
+                            <h2 class="text-4xl font-bold font-serif mb-4">Begin Your Story</h2>
+
+                            <div class="mb-4">
+                                <label class="block  font-bold font-serif text-2xl mb-2">Prompt:</label>
+
+                                <textarea required
+                                    class="text-black focus:opacity-100 w-full focus:bg-white focus:text-black" name=""
+                                    id="" rows="10" [(ngModel)]="prompt"></textarea>
+                            </div>
+                            <button mat-raised-button color="primary" (click)="handleStoryGeneration()" class="w-full">
+                                Generate
+                            </button>
+
+
+                        </div>
+                        }
+
+                        @else if (isLoading && !storyReturn ) {
+                        <div class="max-w-md mx-auto p-8  rounded-lg shadow-lg bg-white text-white bg-opacity-10">
+                            <mat-card class="example-card">
+                                <mat-card-header>
+                                    <mat-progress-spinner [diameter]="50" mode="indeterminate" color="accent"
+                                        class="ml-auto"></mat-progress-spinner>
+                                    <mat-card-title>Loading</mat-card-title>
+                                </mat-card-header>
+                                <div class="w-full h-full rounded-e-lg p-4">
+                                    <img src="../../../assets/images/waiting.jpg"
+                                        class="w-full h-full rounded-2xl object-cover">
+                                </div>
+                                <mat-card-content>
+                                    <p>Your Story Is Processing Please Wait! <mat-icon
+                                            class="mat-18">sentiment_very_satisfied</mat-icon></p>
+                                </mat-card-content>
+                            </mat-card>
+
+                        </div>
+
+                        }
+
+                        @else if(!isLoading && storyReturn ){
+                        <div class="max-w-md mx-auto p-8  rounded-lg shadow-lg bg-white text-white bg-opacity-10">
+                            <h2 class="text-4xl font-bold font-serif mb-4">Save Your Story</h2>
+                            <!-- Your form here -->
+                            <form class="" (ngSubmit)="handleSave()" [formGroup]="storyForm">
+
+
+                                <div class="mb-2">
+
+                                    <mat-form-field class="w-full">
+                                        <label class="block  font-bold font-serif text-2xl mb-2">Title</label>
+
+                                        <input matInput placeholder="Title of the story" value="" name="title"
+                                            formControlName="title" class="p-2  w-full focus:shadow-outline">
+                                    </mat-form-field>
+
+                                </div>
+
+
+                                <div class="mb-2">
+                                    <mat-form-field class="w-full">
+                                        <label class="block  font-bold font-serif text-2xl mb-2">Story</label>
+
+
+                                        <textarea matInput formControlName="content" [value]="storyReturn"
+                                            class=" focus:opacity-100 w-full focus:shadow-outline" name="content"
+                                            rows="10"></textarea>
+                                    </mat-form-field>
+
+
+                                </div>
+
+                                <div>
+                                    <button mat-raised-button color="primary" type="submit" class="w-full">
+                                        Save
+                                    </button>
+                                </div>
+
+                                <div class="mt-4">
+                                    <button mat-raised-button color="accent" (click)="handleReset()" class="w-full">
+                                        Back
+                                    </button>
+                                </div>
+                            </form>
+
+
+                        </div>
+                        }
+
+
+
+
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+
+        </div>
+    </div>
+
+    <div class=" flex justify-center bg-black bg-opacity-25 text-pretty">
+
+
+
+    </div>
+</div>

@@ -1,0 +1,60 @@
+<div class="flex h-screen banner">
+    <!-- Side Navigation Bar -->
+    <mat-drawer-container class="flex flex-wrap">
+        <mat-drawer #drawer class="example-sidenav" mode="side" class="p-10">
+
+            @if (user!=null) {
+
+            <div class="mt-2">
+                <div class=" flex flex-wrap items-center justify-center">
+                    <span>
+                        <mat-icon class="mat-18 items-center">account_circle</mat-icon>
+                    </span>
+                </div>
+                <span class="text-pretty text-purple-500 font-serif text-2xl">
+                    {{user?.fullname}}
+
+                </span>
+
+            </div>
+            }
+            <div class="mt-5">
+                <div class="flex ">
+                    <button class="transform hover:scale-105 hover:text-red-600" (click)="handleCreateStory()"> <span
+                            class="p-4 my-2 text-lg">Create Story</span><mat-icon
+                            class="mat-18">favorite_border</mat-icon>
+                    </button>
+                </div>
+            </div>
+            <div class="mt-5">
+                <div class="flex ">
+                    <button class="transform hover:scale-105 hover:text-red-600" (click)="handleViewStory()"> <span
+                            class="p-4 my-2 text-lg">View Story</span><mat-icon class="mat-18">view_list</mat-icon>
+                    </button>
+                </div>
+            </div>
+
+            <div class="mt-5">
+                <div class="flex ">
+                    <button class="transform hover:scale-105 hover:text-red-600" (click)="logout()"> <span
+                            class="p-4 my-2 text-lg">Logout</span><mat-icon class="mat-18">logout</mat-icon> </button>
+                </div>
+            </div>
+
+        </mat-drawer>
+
+        <!-- Toggle Button for Side Navigation Bar -->
+        <div class="example-sidenav-content p-2 m-4">
+            <button class="ml-10" color="accent" type="button" mat-button (click)="drawer.toggle()">
+                <mat-icon class="mat-18 scale-150">menu</mat-icon>
+            </button>
+        </div>
+    </mat-drawer-container>
+
+    <!-- Main Content -->
+    <div class="flex-1 ">
+        <!-- Your main content goes here -->
+        <router-outlet></router-outlet>
+
+    </div>
+</div>

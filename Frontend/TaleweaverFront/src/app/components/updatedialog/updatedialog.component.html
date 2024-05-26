@@ -1,0 +1,19 @@
+<div class="dialog-container  w-full">
+    <div mat-dialog-title>
+        <h1 mat-dialog-title>Title</h1>
+        <input class="w-full text-black" type="text" matInput [(ngModel)]="data.title">
+    </div>
+    <div mat-dialog-content class="dialog-content">
+        <h1>Content</h1>
+        <textarea class="text-black w-full" matInput cols="30" rows="10" [(ngModel)]="data.content"></textarea>
+        <!-- Add more fields as necessary -->
+    </div>
+    <div class="flex justify-center items-start">
+        <div mat-dialog-actions>
+            <button mat-raised-button color="accent" (click)="onClose()">Close</button>
+        </div>
+        <div mat-dialog-actions>
+            <button mat-raised-button color="primary" (click)="update(data)">Update</button>
+        </div>
+    </div>
+</div>
